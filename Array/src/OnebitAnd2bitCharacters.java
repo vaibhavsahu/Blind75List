@@ -1,0 +1,14 @@
+//https://leetcode.com/problems/1-bit-and-2-bit-characters
+public class OnebitAnd2bitCharacters {
+    public boolean isOneBitCharacter(int[] bits) {
+        int i =0;
+        while( i < bits.length - 1) {
+            if (bits[i] == 1) {
+                i += 2;
+            } else {
+                i++;
+            }
+        }
+        return i == bits.length - 1;
+    }
+}
