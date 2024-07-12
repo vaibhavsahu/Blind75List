@@ -19,7 +19,7 @@ public class FindMiddleIndexArray {
                 return i; //return that index
         }
         return -1;
-
-
     }
+
+
 }

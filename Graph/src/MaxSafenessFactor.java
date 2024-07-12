@@ -29,12 +29,12 @@ public class MaxSafenessFactor {
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(grid.get(i).get(j) == 0){
-                    int safeFactor = Math.abs(row-i)+ Math.abs(j-col);
-                    grid.get(i).set(j, safeFactor);
+                    maxSafFactor = Math.abs(row-i)+ Math.abs(j-col);
+                    grid.get(i).set(j, maxSafFactor);
                 }
             }
         }
-        return 0;
+        return maxSafFactor;
     }
 
    // public int

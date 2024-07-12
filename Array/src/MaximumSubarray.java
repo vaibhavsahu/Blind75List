@@ -28,7 +28,7 @@ public class MaximumSubarray {
             currSum += nums[right];
             if(currSum < 0) currSum = 0; //reset the currSum to zero if it reaches -ve
             while(currSum >= maxSum){
-                maxSum = Math.max(maxSum, currSum);
+                maxSum = currSum;
                 currSum -= nums[left];
                 left++;
             }
@@ -41,7 +41,7 @@ public class MaximumSubarray {
     public static int maxSubArray2(int[] nums) {
         int currSum = 0;
         int maxSum = Integer.MIN_VALUE;
-                for (int num : nums) {
+        for (int num : nums) {
             if (currSum < 0)
                 currSum = 0;
 

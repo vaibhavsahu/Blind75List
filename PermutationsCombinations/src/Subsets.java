@@ -1,20 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Subsets {
 
-    public static List<List<Integer>> getSubsets(int [] nums){
+    public static ArrayList<ArrayList<Integer>> getSubsets(int [] nums){
 
-        List<List<Integer>> ans = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
 
-        getSubsetsHelper(0, nums, ans, new ArrayList<Integer>());
+        getSubsetsHelper(0, nums, ans, new ArrayList<>());
 
         return  ans;
 
     }
 
     private static void getSubsetsHelper(int i, int[] nums,
-                                         List<List<Integer>> ans,
+                                         ArrayList<ArrayList<Integer>> ans,
                                          ArrayList<Integer> list) {
         //base case
         if(nums.length == i){
@@ -26,5 +25,9 @@ public class Subsets {
         getSubsetsHelper(i+1, nums, ans, list);
         list.remove(list.size()-1);
         getSubsetsHelper(i+1, nums, ans, list);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getSubsets(new int[]{0, -1, -2, -9, 2, 4}));
     }
 }

@@ -21,7 +21,7 @@ public class ValidWordSquare {
             char [] row =  matrix[i];
             int j = 0;
             StringBuilder sb = new StringBuilder();
-            while(i < matrix.length && j < matrix.length && matrix[j][i] != ' '){
+            while(j < matrix.length && matrix[j][i] != ' '){
                 sb.append(matrix[j][i]);
                 j++;
             }

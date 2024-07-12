@@ -5,10 +5,6 @@ public class MinLinesToCoverPoints {
         Map<Double, List<Pair<Integer, Integer>>> adjList = new HashMap<>();
         Map<Double, Integer> slopeCountMap = new HashMap<>();
 
-//        for (int i = 0; i < points.length; i++) {
-//            adjList.put(i, new ArrayList<>());
-//        }
-
         for (int i = 0; i < points.length; i++) {
             for (int j = i + 1; j < points.length; j++) {
                 if(Math.abs(points[i][0] - points[j][0]) != 0.0){
@@ -17,11 +13,8 @@ public class MinLinesToCoverPoints {
                     adjList.computeIfAbsent(slope, k -> new ArrayList<>()).add(new Pair<>(points[i][0], points[j][0]));
                     adjList.computeIfAbsent(slope, k -> new ArrayList<>()).add(new Pair<>(points[i][1], points[j][1]));
                 }
-
-                //adjList.computeIfAbsent(slope, k -> new ArrayList<>()).add(new Pair<>(slope, i));
             }
         }
-
 
         Set<Integer> visited = new HashSet<>();
 
@@ -36,18 +29,10 @@ public class MinLinesToCoverPoints {
 
         while (visited.size() < points.length) {
             Pair<Double, Integer> pair = minHeap.remove();
-            if (visited.contains(pair.second)) {
-                continue;
-            }
+            if (visited.contains(pair.second)) continue;
 
             totalCost += 1;
             visited.add(pair.second);
-
-//            for (Pair<Double, Integer> pair1 : adjList.get(pair.second)) {
-//                if (!visited.contains(pair1.second)) {
-//                    minHeap.add(pair1);
-//                }
-//            }
         }
         return totalCost;
     }

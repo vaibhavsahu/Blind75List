@@ -13,10 +13,37 @@ class Pair<U, V>{
     public U getFirst(){
         return this.first;
     }
+
+    public V getSecond(){
+        return this.second;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pair<?, ?> pair = (Pair<?, ?>) o;
+        return Objects.equals(first, pair.first) && Objects.equals(second, pair.second);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
+    }
+
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "first=" + first +
+                ", second=" + second +
+                '}';
+    }
 }
 
 class SortBy1Bits {
     public static int[] sortByBits(int[] arr) {
+        List<Pair<Integer, Integer>> pairs = new ArrayList<>();
+        Comparator<Pair<Integer, Integer>> pairComparator = Comparator.comparing(Pair::getFirst);
         Map<Integer, List<Integer>> map = new TreeMap<>();
 
         Arrays.sort(arr);

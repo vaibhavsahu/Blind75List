@@ -6,9 +6,7 @@ public class NumberOfBeautifulPairs {
             for(int j = i+1; j < nums.length; j++){
                 int first = ("" + nums[i]).charAt(0) - '0';
                 int last = nums[j] % 10;
-                if(gcd(first, last) == 1){
-                    count++;
-                }
+                if(gcd(first, last) == 1) count++;
             }
         }
         return count;

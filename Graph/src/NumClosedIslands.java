@@ -24,18 +24,18 @@ public class NumClosedIslands {
 
         // mark visited
         vis[i][j] = true;
-        boolean isClosed = dfs(grid, i + 1, j, vis);
+        return dfs(grid, i + 1, j, vis) || dfs(grid, i, j + 1, vis) || dfs(grid, i, j - 1, vis) ||dfs(grid, i - 1, j, vis);
 
-        // call 4 directions
-        if(!dfs(grid, i, j + 1, vis)){
-            isClosed = false;
-        }
-        if(!dfs(grid, i, j - 1, vis)){
-            isClosed = false;
-        }
-        if(!dfs(grid, i - 1, j, vis)){
-            isClosed = false;
-        }
-        return isClosed;
+//        // call 4 directions
+//        if(!dfs(grid, i, j + 1, vis)){
+//            isClosed = false;
+//        }
+//        if(!dfs(grid, i, j - 1, vis)){
+//            isClosed = false;
+//        }
+//        if(!dfs(grid, i - 1, j, vis)){
+//            isClosed = false;
+//        }
+       // return isClosed;
     }
 }

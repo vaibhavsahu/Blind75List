@@ -2,29 +2,19 @@ import java.util.HashMap;
 //https://leetcode.com/problems/maximum-size-subarray-sum-equals-k
 public class MaxSizeSubarraySumK {
     public static int maxSubArrayLen(int[] nums, int k) {
-        int prefixSum = 0;
-        int longestSubarray = 0;
-        int right = 0;
-        HashMap<Integer, Integer> indices = new HashMap<>();
-        while(right < nums.length){
-            prefixSum += nums[right];
+        int sum = 0;
+        int maxLen = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 0);
 
-            if (prefixSum == k) {
-                longestSubarray = right + 1;
-            }
-
-            if (indices.containsKey(prefixSum - k)) {
-                longestSubarray = Math.max(longestSubarray,
-                        right - indices.get(prefixSum - k));
-            }
-
-            if (!indices.containsKey(prefixSum)) {
-                indices.put(prefixSum, right);
-            }
-            right++;
+        for(int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            if(sum == k) maxLen = i+1;
+            if (map.containsKey(sum - k))
+                maxLen = Math.max(maxLen, i-map.get(sum-k));
+            if(!map.containsKey(sum)) map.put(sum, i);
         }
-
-        return longestSubarray;
+        return maxLen;
     }
 
     public static void main(String[] args) {

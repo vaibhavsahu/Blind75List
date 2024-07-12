@@ -2,20 +2,20 @@ import java.util.*;
 
 public class SlidingWindowMaximum {
     public static int [] slidingMaximum(int [] nums, int k) {
-        Deque<Integer> dq = new ArrayDeque<>();
-        List<Integer> res = new ArrayList<>();
+        var queue = new LinkedList<Integer>();
+        var res = new ArrayList<Integer>();
 
-        for (int i = 0; i < nums.length; i++) {
-            while (!dq.isEmpty() && dq.peekFirst() == i - k) {
-                dq.pollFirst();
+        for (var i = 0; i < nums.length; i++) {
+            while (!queue.isEmpty() && k == i - queue.peekFirst()) {
+                queue.pollFirst();
             }
-            while (!dq.isEmpty() && nums[i] >= nums[dq.peekLast()]) {
-                dq.pollLast();
+            while (!queue.isEmpty() && nums[i] >= nums[queue.peekLast()]) {
+                queue.pollLast();
             }
 
-            dq.offerLast(i);
-            if( i >= k-1){
-                res.add(nums[dq.peekFirst()]);
+            queue.offerLast(i);
+            if( i > k){
+                res.add(nums[queue.peekFirst()]);
             }
         }
         // Return the result as an array.

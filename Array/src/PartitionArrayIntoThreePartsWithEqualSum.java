@@ -2,6 +2,7 @@ import java.util.Arrays;
 //https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum
 public class PartitionArrayIntoThreePartsWithEqualSum {
     public boolean canThreePartsEqualSum(int[] arr) {
+
         int sum = Arrays.stream(arr).sum();
         int prefixSum = 0;
         int average = sum / 3;

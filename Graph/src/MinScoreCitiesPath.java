@@ -31,10 +31,8 @@ public class MinScoreCitiesPath {
     }
 
     public void dfs(int start, Set<Integer> visited, Map<Integer,
-            List<Pair<Integer, Integer>>> distanceMap, int [] resDistance){
-        if(visited.contains(start)){
-            return;
-        }
+         List<Pair<Integer, Integer>>> distanceMap, int [] resDistance){
+        if(visited.contains(start)) return;
 
         visited.add(start);
 
@@ -42,6 +40,5 @@ public class MinScoreCitiesPath {
             resDistance[0] = Math.min(resDistance[0], pair.second);
             dfs(pair.first, visited, distanceMap, resDistance);
         }
-
     }
 }

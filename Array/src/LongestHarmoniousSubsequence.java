@@ -1,10 +1,12 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 //https://leetcode.com/problems/longest-harmonious-subsequence/
 public class LongestHarmoniousSubsequence {
     public static int findLHS(int[] nums) {
 
         Map<Pair<Integer, Integer>, Integer> map = new HashMap<>();
+
         Set<Integer> set = new HashSet<>(Arrays.stream(nums).boxed().toList());
 
         for (int num : nums) {
@@ -16,7 +18,7 @@ public class LongestHarmoniousSubsequence {
 
         int res = 0;
 
-        for(Map.Entry<Pair<Integer, Integer>, Integer> entry: map.entrySet()){
+        for(Map.Entry< Pair<Integer, Integer>, Integer> entry: map.entrySet()){
             if(set.contains(entry.getKey().first)
                     && set.contains(entry.getKey().second)){
                 res = Math.max(res, entry.getValue());

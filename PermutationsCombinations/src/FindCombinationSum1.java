@@ -20,7 +20,7 @@ public class FindCombinationSum1 {
     private static List<List<Integer>> findCombinationSum1(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         findCombinationSum1Helper(0, candidates, target, ans,
-                new ArrayList<Integer>());
+                new ArrayList<>());
         return ans;
     }
 

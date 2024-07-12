@@ -33,8 +33,7 @@ public class AlienDictionary {
 
         // Step 2: DFS to build up the output list.
         for (var c : reverseAdjList.keySet()) {
-            boolean result = dfs(c);
-            if (!result) return "";
+            if (!dfs(c)) return "";
         }
 
         return output.toString();
@@ -47,8 +46,7 @@ public class AlienDictionary {
         }
         seen.put(c, false);
         for (Character next : reverseAdjList.get(c)) {
-            var result = dfs(next);
-            if (!result) return false;
+            if (!dfs(next)) return false;
         }
         seen.put(c, true);
         output.append(c);
