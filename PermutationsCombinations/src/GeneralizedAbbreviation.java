@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class GeneralizedAbbreviation {
     public List<String> generateAbbreviations(String word) {
         List<String> result = new ArrayList<>();
