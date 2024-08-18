@@ -29,7 +29,6 @@ public class OptimalBST {
             }
         }
 
-        System.out.println(Arrays.deepToString(dp));
         return dp[0][roots.length];
     }
 
