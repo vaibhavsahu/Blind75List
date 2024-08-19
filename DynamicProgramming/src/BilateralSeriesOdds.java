@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class BilateralSeriesOdds {
     public static double WS(int matches, double p) {
