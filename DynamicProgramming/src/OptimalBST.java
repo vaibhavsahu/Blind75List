@@ -29,6 +29,7 @@ public class OptimalBST {
             }
         }
 
+
         return dp[0][roots.length];
     }
 
