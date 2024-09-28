@@ -32,6 +32,8 @@ public class Permutations1 {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
+        int[][] costs = new int[nums.length][nums.length];
+        Arrays.stream(nums).min().getAsInt();
     }
 
 }

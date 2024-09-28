@@ -11,6 +11,8 @@ public class MatrixChainMultiplication {
                 }
             }
         }
+
+
         return result[0][n-1];
     }
 }

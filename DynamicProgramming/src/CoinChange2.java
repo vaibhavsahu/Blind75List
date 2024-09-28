@@ -4,10 +4,10 @@ public class CoinChange2 {
 
         result[0] = 1;
 
-        for(int i = 1; i <= coins.length; i++){
+        for(var coin: coins){
             for(int j = 1; j <= amount; j++){
-                if(j - coins[i-1] >= 0){
-                    result[j] += result[j - coins[i-1]];
+                if(j - coin >= 0){
+                    result[j] += result[j - coin];
                 }
             }
         }
